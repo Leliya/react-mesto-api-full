@@ -1,0 +1,23 @@
+.header__close-button {
+  width: 20px;
+  height: 20px;
+  background: none;
+  border: none;
+  background-size: cover;
+  padding: 0;
+  margin: 0 30px 0 0;
+  background-image: url("../../../images/popup-close.svg");
+  transition: opacity 0.2s linear;
+}
+
+.header__close-button:hover {
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s linear;
+}
+
+@media screen and (min-width: 601px) {
+  .header__close-button {
+    display: none;
+  }
+}

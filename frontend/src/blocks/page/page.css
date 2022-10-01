@@ -1,0 +1,48 @@
+.page {
+  background-color: black;
+  width: 100%;
+  display: grid;
+  grid-template-columns: calc(200vw / 1280 * 100) calc(880vw / 1280 * 100) calc(
+      200vw / 1280 * 100
+    );
+  grid-template-rows: repeat(4, min-content);
+  grid-template-areas:
+    ". header ."
+    ". main ."
+    ". register ."
+    ". footer .";
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+}
+
+@media screen and (min-width: 1441px) {
+  .page {
+    grid-template-columns: 1fr 990px 1fr;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .page {
+    grid-template-columns: 1fr 704px 1fr;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .page {
+    grid-template-columns: 19px 1fr 19px;
+    grid-template-areas:
+      "menu menu menu"
+      "header header header"
+      ". main ."
+      ". register ."
+      ". footer .";
+  }
+}

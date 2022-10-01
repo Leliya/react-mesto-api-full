@@ -1,0 +1,25 @@
+.header__email {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.2;
+  text-align: right;
+  color: #ffffff;
+  margin-right: 24px;
+  opacity: 1;
+  visibility: visible;
+}
+
+@media screen and (max-width: 600px) {
+  .header__email {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    padding: 0;
+    text-align: center;
+    margin: 0;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  }
+}

@@ -1,0 +1,19 @@
+.popup__fieldset {
+  position: relative;
+  padding: 0;
+  margin: 19px 0 9px;
+}
+
+.popup__fieldset:last-of-type {
+  margin: 11px 0 30px;
+}
+
+@media screen and (max-width: 800px) {
+  .popup__fieldset {
+    margin: 51px 0 0px;
+  }
+
+  .popup__fieldset:last-of-type {
+    margin: 10px 0 14px;
+  }
+}

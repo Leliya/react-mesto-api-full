@@ -1,0 +1,21 @@
+.header {
+  width: 100%;
+  padding: calc(46 / 1280 * 100vw) 0 calc(40 / 1280 * 100vw);
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 1280px) {
+  .header {
+    padding: 46px 0 36px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .header {
+    padding: 30px 0 25px;
+  }
+}

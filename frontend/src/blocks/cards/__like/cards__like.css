@@ -1,0 +1,51 @@
+.cards__like {
+  min-width: 22px;
+  min-height: 19px;
+  background-image: url('../../../images/cards-like.svg');
+  transition: opacity 0.4s ease;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: none;
+  background-color: white;
+  padding: 0;
+}
+
+.cards__like:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1441px) {
+  .cards__like {
+    min-width: 26px;
+    height: 26px;
+  }
+}
+
+@media screen and (max-width: 1441px) {
+  .cards__like {
+    min-width: calc(22vw / 1280 * 100);
+    min-height: calc(19vw / 1280 * 100);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .cards__like {
+    min-width: 18px;
+    min-height: 15px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .cards__like {
+    min-width: 22px;
+    min-height: 19px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .cards__like {
+    min-width: 22px;
+    min-height: 19px;
+  }
+}

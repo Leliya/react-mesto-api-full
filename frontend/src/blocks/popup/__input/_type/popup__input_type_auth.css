@@ -1,0 +1,26 @@
+.popup__input_type_auth {
+  border-bottom: 2px solid #cccccc;
+  color: #fff;
+  background-color: #000;
+  font-weight: 500;
+}
+
+.popup__input::-webkit-input-placeholder {
+  color: #cccccc;
+}
+
+.popup__input::-moz-placeholder {
+  color: #cccccc;
+}
+
+.popup__input:-ms-input-placeholder {
+  color: #cccccc;
+}
+
+.popup__input::-ms-input-placeholder {
+  color: #cccccc;
+}
+
+.popup__input::placeholder {
+  color: #cccccc;
+}

@@ -1,0 +1,19 @@
+.header__link_type_signout {
+  color: #e5e5e5;
+  opacity: 1;
+  visibility: visible;
+}
+
+@media screen and (max-width: 600px) {
+  .header__link_type_signout {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    padding: 0;
+    text-align: center;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  }
+}

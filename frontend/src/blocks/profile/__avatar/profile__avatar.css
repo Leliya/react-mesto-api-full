@@ -1,0 +1,24 @@
+.profile__avatar {
+  border-radius: 50%;
+  grid-column: 1;
+  grid-row: 1/3;
+  width: 120px;
+  height: 120px;
+  position: relative;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 720px) {
+  .profile__avatar {
+    width: calc(120vw / 720 * 100);
+    height: calc(120vw / 720 * 100);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .profile__avatar {
+    grid-row: 1;
+    width: 120px;
+    height: 120px;
+  }
+}

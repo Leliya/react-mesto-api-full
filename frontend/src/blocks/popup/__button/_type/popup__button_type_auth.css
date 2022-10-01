@@ -1,0 +1,24 @@
+.popup__button_type_auth {
+  background-color: #fff;
+  color: #000;
+  position: fixed;
+  width: 358px;
+  bottom: 112px;
+}
+
+.popup__button_type_auth:hover {
+  opacity: 0.85;
+}
+
+@media screen and (max-width: 845px) {
+  .popup__button_type_auth {
+    width: calc(358vw / 845 * 100);
+  }
+}
+
+@media screen and (max-width: 555px) {
+  .popup__button_type_auth {
+    width: 260px;
+    bottom: 77px;
+  }
+}

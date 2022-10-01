@@ -1,0 +1,13 @@
+.menu{
+  height: 0;
+  width: 100%;
+  transform: scaleX(0);
+  transition: transform 2s ease-in-out, height 0.5s;
+  grid-area: menu;
+}
+
+@media screen and (min-width: 601px) {
+  .menu {
+    display: none;
+  }
+}
