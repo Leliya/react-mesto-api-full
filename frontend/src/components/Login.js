@@ -2,9 +2,6 @@ import React from "react";
 import FormForAuth from "./FormForAuth";
 
 class Login extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
