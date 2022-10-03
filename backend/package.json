@@ -19,6 +19,7 @@
     "body-parser": "^1.20.0",
     "celebrate": "^15.0.1",
     "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
     "express": "^4.18.1",
     "express-winston": "^4.2.0",
     "helmet": "^6.0.0",
@@ -27,10 +28,5 @@
     "mongoose": "^6.5.4",
     "validator": "^13.7.0",
     "winston": "^3.8.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Leliya/express-mesto-gha.git"
-  },
-  "homepage": "https://github.com/Leliya/express-mesto-gha#readme"
+  }
 }

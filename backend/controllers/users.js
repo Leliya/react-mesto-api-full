@@ -5,6 +5,8 @@ const NotFoundError = require('../errors/not-found-error');
 const DoubleEmailError = require('../errors/doubling-error');
 const IncorrectDataError = require('../errors/incorrect-data-error');
 
+const { NODE_ENV, JWT_SECRET } = process.env;
+
 const getUsers = (req, res, next) => {
   User.find({})
     .then((user) => res.send({ user }))
@@ -107,7 +109,7 @@ const login = (req, res, next) => {
   const { email, password } = req.body;
 
   User.findUserByCredentials(email, password).then((user) => {
-    const token = jwt.sign({ _id: user._id }, 'some-secret-key', { expiresIn: '7d' });
+    const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret', { expiresIn: '7d' });
     return res
       .cookie('jwt', token, {
         maxAge: 3600000 * 24 * 7,
