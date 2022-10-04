@@ -8,6 +8,9 @@ const { errors } = require('celebrate');
 const app = express();
 const mongoose = require('mongoose');
 const { auth } = require('./middlewares/auth');
+const { handlerAdvanceRequest } = require('./middlewares/handlerAdvanceRequest');
+const { allowCors } = require('./middlewares/allowCors');
+
 const userRouter = require('./routes/users');
 const cardRouter = require('./routes/cards');
 const { unlogin } = require('./controllers/users');
@@ -30,6 +33,9 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
 });
 
 app.use(requestLogger);
+
+app.use(allowCors);
+app.use(handlerAdvanceRequest);
 
 app.use('', routes);
 
