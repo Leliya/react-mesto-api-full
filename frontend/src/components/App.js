@@ -59,9 +59,10 @@ function App() {
   }, [loggedIn]);
 
   React.useEffect(() => {
-    const jwt = localStorage.getItem("jwt");
-    if (jwt) {
-      getContent(jwt)
+    //const jwt = localStorage.getItem("jwt");
+    //if (jwt) {
+//      getContent(jwt)
+      getContent()
         .then((res) => {
           if (res) {
             setloggedIn(true);
@@ -72,7 +73,7 @@ function App() {
         .catch((err) => {
           console.log(err);
         });
-    }
+ //   }
     return;
   }, [history, loggedIn, dataAuth.email]);
 
@@ -204,13 +205,14 @@ function App() {
   function handleLogin() {
     setLoading(true);
     authorize(dataAuth.email, dataAuth.password)
-      .then((data) => {
-        if (data.token) {
+      .then(() => {
+   //   .then((data) => {
+    //    if (data.token) {
           setDataAuth({ email: "", password: "" });
           setloggedIn(true);
           history.push("/");
-        }
-      })
+        })
+    //  })
       .catch(() => {
         setRegInfo({
           isRegOk: false,
@@ -227,7 +229,7 @@ function App() {
 
   function handleSignOut() {
     setloggedIn(false);
-    localStorage.removeItem("jwt");
+//    localStorage.removeItem("jwt");
     history.push("/sign-in");
     setEmailLoggedin("");
   }

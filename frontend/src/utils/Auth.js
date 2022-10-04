@@ -1,4 +1,4 @@
-export const BASE_URL = "https://auth.nomoreparties.co/";
+export const BASE_URL = "http://api.leliya.mesto.nomoredomains.icu/";
 
 function checkResponse(response) {
   return response.ok
@@ -27,23 +27,25 @@ export const authorize = (email, password) => {
     body: JSON.stringify({ email, password }),
   })
     .then(checkResponse)
-    .then((data) => {
-      if (data.token) {
-        localStorage.setItem("jwt", data.token);
-        return data;
-      } else {
-        return;
-      }
-    });
+    // .then((data) => {
+    //   if (data.token) {
+    //     localStorage.setItem("jwt", data.token);
+    //     return data;
+    //   } else {
+    //     return;
+    //   }
+    // });
 };
 
-export const getContent = (token) => {
+//export const getContent = (token) => {
+export const getContent = () => {
   return fetch(`${BASE_URL}users/me`, {
     method: "GET",
+    credentials: "include",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+  //    Authorization: `Bearer ${token}`,
     },
   }).then(checkResponse);
 };
