@@ -67,7 +67,7 @@ function App() {
           console.log(res)
           if (res) {
             setloggedIn(true);
-            setEmailLoggedin(res.email);
+            setEmailLoggedin(res.user.email);
             history.push("/");
           }
         })

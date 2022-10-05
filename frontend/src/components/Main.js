@@ -24,13 +24,13 @@ function Main({
             onClick={onEditAvatar}
           ></button>
           <img
-            src={currentUser.user.avatar}
+            src={currentUser.length?currentUser.user.avatar:'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png'}
             alt="Аватар профиля"
             className="profile__avatar"
           />
         </div>
-        <h1 className="profile__name">{currentUser.user.name}</h1>
-        <p className="profile__activity">{currentUser.user.about}</p>
+        <h1 className="profile__name">{currentUser.length?currentUser.user.name:'Жак-Ив Кусто'}</h1>
+        <p className="profile__activity">{currentUser.length?currentUser.user.about:'Исследователь'}</p>
         <button
           className="profile__edit-button"
           aria-label="Редактировать профиль"
