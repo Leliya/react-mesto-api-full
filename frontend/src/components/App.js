@@ -66,7 +66,7 @@ function App() {
         .then((res) => {
           if (res) {
             setloggedIn(true);
-            setEmailLoggedin(res.data.email);
+            setEmailLoggedin(res.email);
             history.push("/");
           }
         })
