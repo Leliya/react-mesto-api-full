@@ -46,7 +46,7 @@ function Main({
       </section>
       <section className="photos">
         <ul className="cards">
-          {cards?.map((card) => (
+          {cards.length?cards.map((card) => (
             <Card
               card={card}
               onCardClick={onCardClick}
@@ -54,7 +54,7 @@ function Main({
               onCardLike={onCardLike}
               onCardDelete={onCardDelete}
             />
-          ))}
+          )):<></>}
         </ul>
       </section>
     </main>
