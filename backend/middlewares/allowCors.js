@@ -12,7 +12,7 @@ module.exports.allowCors = (req, res, next) => {
       res.header('Access-Control-Allow-Headers', requestHeaders);
       res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
     }
-    return res.end();
+    res.end();
   }
   return next();
 };
