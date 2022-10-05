@@ -64,6 +64,7 @@ function App() {
 //      getContent(jwt)
       getContent()
         .then((res) => {
+          console.log(res)
           if (res) {
             setloggedIn(true);
             setEmailLoggedin(res.email);
@@ -205,7 +206,8 @@ function App() {
   function handleLogin() {
     setLoading(true);
     authorize(dataAuth.email, dataAuth.password)
-      .then(() => {
+      .then((res) => {
+        console.log(res)
    //   .then((data) => {
     //    if (data.token) {
           setDataAuth({ email: "", password: "" });
