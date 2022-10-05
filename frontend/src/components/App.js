@@ -207,7 +207,6 @@ function App() {
     setLoading(true);
     authorize(dataAuth.email, dataAuth.password)
       .then((res) => {
-        console.log(res)
    //   .then((data) => {
     //    if (data.token) {
           setDataAuth({ email: "", password: "" });

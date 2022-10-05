@@ -24,13 +24,13 @@ function Main({
             onClick={onEditAvatar}
           ></button>
           <img
-            src={currentUser.avatar}
+            src={currentUser.user.avatar}
             alt="Аватар профиля"
             className="profile__avatar"
           />
         </div>
-        <h1 className="profile__name">{currentUser.name}</h1>
-        <p className="profile__activity">{currentUser.about}</p>
+        <h1 className="profile__name">{currentUser.user.name}</h1>
+        <p className="profile__activity">{currentUser.user.about}</p>
         <button
           className="profile__edit-button"
           aria-label="Редактировать профиль"
