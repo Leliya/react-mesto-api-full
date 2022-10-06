@@ -102,7 +102,7 @@ function App() {
     api
       .changeLikeCard(card._id, isLiked)
       .then((res) =>
-        updateCards((cards) => cards.map((c) => (c._id === card._id ? res : c)))
+        updateCards((cards) => cards.map((c) => (c._id === card._id ? res.cards : c)))
       )
       .catch((err) => {
         console.log(err);
@@ -137,8 +137,8 @@ function App() {
     setLoading(true);
     api
       .postNewCard(data)
-      .then((card) => {
-        updateCards([card, ...cards]);
+      .then((cards) => {
+        updateCards([cards.cards, ...cards]);
         closeAllPopups();
       })
       .catch((err) => {
