@@ -13,7 +13,7 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import Register from "./Register";
 import Login from "./Login";
 import ProtectedRoute from "./ProtectedRoute";
-import { getContent, authorize, register } from "../utils/Auth";
+import { getContent, authorize, register, signout } from "../utils/Auth";
 import InfoTooltip from "./InfoTooltip";
 
 function App() {
@@ -61,20 +61,19 @@ function App() {
   React.useEffect(() => {
     //const jwt = localStorage.getItem("jwt");
     //if (jwt) {
-//      getContent(jwt)
-      getContent()
-        .then((res) => {
-          console.log(res)
-          if (res) {
-            setloggedIn(true);
-            setEmailLoggedin(res.user.email);
-            history.push("/");
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
- //   }
+    //      getContent(jwt)
+    getContent()
+      .then((res) => {
+        if (res) {
+          setloggedIn(true);
+          setEmailLoggedin(res.user.email);
+          history.push("/");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    //   }
     return;
   }, [history, loggedIn, dataAuth.email]);
 
@@ -207,13 +206,13 @@ function App() {
     setLoading(true);
     authorize(dataAuth.email, dataAuth.password)
       .then(() => {
-   //   .then((data) => {
-    //    if (data.token) {
-          setDataAuth({ email: "", password: "" });
-          setloggedIn(true);
-          history.push("/");
-        })
-    //  })
+        //   .then((data) => {
+        //    if (data.token) {
+        setDataAuth({ email: "", password: "" });
+        setloggedIn(true);
+        history.push("/");
+      })
+      //  })
       .catch(() => {
         setRegInfo({
           isRegOk: false,
@@ -229,10 +228,12 @@ function App() {
   }
 
   function handleSignOut() {
-    setloggedIn(false);
-//    localStorage.removeItem("jwt");
-    history.push("/sign-in");
-    setEmailLoggedin("");
+    signout.then(() => {
+      setloggedIn(false); history.push("/sign-in");
+      setEmailLoggedin("");
+    }).catch((err) => {
+      console.log(err);
+    })
   }
 
   function handlerCloseInfoTooltip() {

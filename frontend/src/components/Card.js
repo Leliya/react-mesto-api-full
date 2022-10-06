@@ -14,9 +14,11 @@ function Card({ card, onCardClick, onCardLike, onCardDelete }) {
   function handleLikeClick() {
     onCardLike(card, isLiked);
   }
+
   function handleDeleteClick() {
     onCardDelete(card);
   }
+  
   return (
     <li className="cards__item">
       <img

@@ -31,7 +31,6 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace, isLoading }) {
   }
 
   function handleChangeTitle(evt) {
-    console.log(evt.target);
     setTitle(evt.target.value);
     setValidTitleStatus({
       validity: evt.target.validity.valid,

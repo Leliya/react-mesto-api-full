@@ -39,6 +39,12 @@ export const authorize = (email, password) => {
     // });
 };
 
+export const signout = () => {
+  return fetch(`${BASE_URL}signout`, {
+    credentials: "include",
+  }).then(checkResponse);
+};
+
 //export const getContent = (token) => {
 export const getContent = () => {
   return fetch(`${BASE_URL}users/me`, {
