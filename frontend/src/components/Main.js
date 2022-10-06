@@ -46,7 +46,7 @@ function Main({
       </section>
       <section className="photos">
         <ul className="cards">
-          {cards.length?cards.map((card) => (
+          {cards.cards?cards.cards.map((card) => (
             <Card
               card={card}
               onCardClick={onCardClick}
