@@ -51,7 +51,7 @@ function App() {
     if (loggedIn) {
       api
         .getInitialCards()
-        .then((cards) => updateCards(cards))
+        .then((data) => updateCards(data.cards))
         .catch((err) => {
           console.log(err);
         });
@@ -137,8 +137,8 @@ function App() {
     setLoading(true);
     api
       .postNewCard(data)
-      .then((cards) => {
-        updateCards([cards.cards, ...cards]);
+      .then((res) => {
+        updateCards([res.card, ...cards]);
         closeAllPopups();
       })
       .catch((err) => {
@@ -206,7 +206,7 @@ function App() {
   function handleLogin() {
     setLoading(true);
     authorize(dataAuth.email, dataAuth.password)
-      .then((res) => {
+      .then(() => {
    //   .then((data) => {
     //    if (data.token) {
           setDataAuth({ email: "", password: "" });
