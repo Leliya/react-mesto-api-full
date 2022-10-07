@@ -31,7 +31,7 @@ const deleteCard = (req, res, next) => {
 
 const createCard = (req, res, next) => {
   const { name, link } = req.body;
-  Card.create({ name, link, owner: req.user._id }).then((card) => Card.findById(card._id).populate('owner').then((newCard) => res.send({ newCard })).catch((err) => {
+  Card.create({ name, link, owner: req.user._id }).then((c) => Card.findById(c._id).populate('owner').then((card) => res.send({ card })).catch((err) => {
     if (err.name === 'ValidationError') {
       return next(new IncorrectDataError('Переданы некорректные данные'));
     }
@@ -50,7 +50,7 @@ const likeCard = (req, res, next) => {
     req.params.cardId,
     { $addToSet: { likes: req.user._id } },
     { new: true },
-  ).populate('likes').orFail(() => { throw new NotFoundError('Карточка не найдена'); })
+  ).populate('owner').populate('likes').orFail(() => { throw new NotFoundError('Карточка не найдена'); })
     .then((card) => res.send({ card }))
     .catch((err) => {
       if (err.name === 'CastError') {
@@ -65,7 +65,7 @@ const dislikeCard = (req, res, next) => {
     req.params.cardId,
     { $pull: { likes: req.user._id } },
     { new: true },
-  ).populate('likes').orFail(() => { throw new NotFoundError('Карточка не найдена'); })
+  ).populate('owner').populate('likes').orFail(() => { throw new NotFoundError('Карточка не найдена'); })
     .then((card) => res.send({ card }))
     .catch((err) => {
       if (err.name === 'CastError') {
