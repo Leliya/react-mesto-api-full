@@ -41,6 +41,7 @@ export const authorize = (email, password) => {
 
 export const signout = () => {
   return fetch(`${BASE_URL}signout`, {
+    method: "GET",
     credentials: "include",
   }).then(checkResponse);
 };

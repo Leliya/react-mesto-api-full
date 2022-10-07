@@ -31,7 +31,12 @@ const deleteCard = (req, res, next) => {
 
 const createCard = (req, res, next) => {
   const { name, link } = req.body;
-  Card.create({ name, link, owner: req.user._id }).populate('owner').populate('likes').then((card) => res.send({ card }))
+  Card.create({ name, link, owner: req.user._id }).then((card) => Card.findById(card._id).populate('owner').then((newCard) => res.send({ newCard })).catch((err) => {
+    if (err.name === 'ValidationError') {
+      return next(new IncorrectDataError('Переданы некорректные данные'));
+    }
+    return next(err);
+  }))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         return next(new IncorrectDataError('Переданы некорректные данные'));

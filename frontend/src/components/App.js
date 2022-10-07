@@ -228,8 +228,10 @@ function App() {
   }
 
   function handleSignOut() {
-    signout.then(() => {
-      setloggedIn(false); history.push("/sign-in");
+    signout()
+    .then(() => {
+      setloggedIn(false); 
+      history.push("/sign-in");
       setEmailLoggedin("");
     }).catch((err) => {
       console.log(err);
