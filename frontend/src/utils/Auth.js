@@ -1,4 +1,4 @@
-export const BASE_URL = "http://api.leliya.mesto.nomoredomains.icu/";
+export const BASE_URL = "https://api.leliya.mesto.nomoredomains.icu/";
 
 function checkResponse(response) {
   return response.ok

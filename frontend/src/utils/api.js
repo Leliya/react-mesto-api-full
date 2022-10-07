@@ -97,7 +97,7 @@ class Api {
 }
 
 export const api = new Api({
-  baseUrl: "http://api.leliya.mesto.nomoredomains.icu",
+  baseUrl: "https://api.leliya.mesto.nomoredomains.icu",
   headers: {
    // authorization: "3d4f8c04-3648-430b-a07d-7834b6267814",
     "Content-Type": "application/json",
