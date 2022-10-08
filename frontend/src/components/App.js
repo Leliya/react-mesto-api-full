@@ -62,6 +62,7 @@ function App() {
     //const jwt = localStorage.getItem("jwt");
     //if (jwt) {
     //      getContent(jwt)
+    console.log(document.cookie);
     getContent()
       .then((res) => {
         if (res) {

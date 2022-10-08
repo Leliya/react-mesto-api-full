@@ -56,5 +56,13 @@ export const getContent = () => {
       "Content-Type": "application/json",
   //    Authorization: `Bearer ${token}`,
     },
-  }).then(checkResponse);
+  }).then((res) => {
+    if(res.status===401){
+      return Promise.reject("Пользователь не авторизован");
+    }
+    if(!res.ok){
+      return Promise.rejectPromise.reject(`Ошибка: ${res.status}`);
+    }
+    return res.json()
+  })
 };
