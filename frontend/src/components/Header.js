@@ -36,7 +36,7 @@ function Header({ loggedIn, onSignOut, email }) {
             <Link
               to="/sign-in"
               className={`header__link header__link_type_signout ${
-                isMenuOpen ? "header__link_position_menu" : ""
+                isMenuOpen ? "header__link_type_signout-menu" : ""
               }`}
               onClick={handleSignOut}
             >

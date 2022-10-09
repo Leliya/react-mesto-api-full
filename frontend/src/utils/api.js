@@ -1,7 +1,6 @@
 class Api {
   constructor(options) {
     this._baseUrl = options.baseUrl;
-    //this._authorization = options.headers.authorization;
   }
 
   _checkResponse(response) {
@@ -13,9 +12,6 @@ class Api {
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       credentials: 'include',
-      // headers: {
-      //   authorization: this._authorization,
-      // },
     }).then(this._checkResponse);
   }
 
@@ -24,7 +20,6 @@ class Api {
       method: "PATCH",
       credentials: 'include',
       headers: {
-        //authorization: this._authorization,
         "Content-Type": "application/json; charset=UTF-8",
       },
       body: JSON.stringify({
@@ -40,7 +35,6 @@ class Api {
       method: "PATCH",
       credentials: 'include',
       headers: {
-        //authorization: this._authorization,
         "Content-Type": "application/json; charset=UTF-8",
       },
       body: JSON.stringify({
@@ -52,9 +46,6 @@ class Api {
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       credentials: 'include',
-      // headers: {
-      //   authorization: this._authorization,
-      // },
     }).then(this._checkResponse);
   }
 
@@ -63,7 +54,6 @@ class Api {
       method: "POST",
       credentials: 'include',
       headers: {
-        // authorization: this._authorization,
         "Content-Type": "application/json; charset=UTF-8",
       },
       body: JSON.stringify({
@@ -78,7 +68,6 @@ class Api {
       method: "DELETE",
       credentials: 'include',
       headers: {
-        // authorization: this._authorization,
         "Content-Type": "application/json; charset=UTF-8",
       },
     }).then(this._checkResponse);
@@ -89,7 +78,6 @@ class Api {
       method: isLiked ? "DELETE" : "PUT",
       credentials: 'include',
       headers: {
-        //authorization: this._authorization,
         "Content-Type": "application/json; charset=UTF-8",
       },
     }).then(this._checkResponse);
@@ -99,7 +87,6 @@ class Api {
 export const api = new Api({
   baseUrl: "https://api.leliya.mesto.nomoredomains.icu",
   headers: {
-   // authorization: "3d4f8c04-3648-430b-a07d-7834b6267814",
     "Content-Type": "application/json",
   },
 });

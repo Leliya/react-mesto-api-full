@@ -59,10 +59,6 @@ function App() {
   }, [loggedIn]);
 
   React.useEffect(() => {
-    //const jwt = localStorage.getItem("jwt");
-    //if (jwt) {
-    //      getContent(jwt)
-    console.log(document.cookie);
     getContent()
       .then((res) => {
         if (res) {
@@ -74,7 +70,6 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
-    //   }
     return;
   }, [history, loggedIn]);
 
@@ -207,13 +202,10 @@ function App() {
     setLoading(true);
     authorize(dataAuth.email, dataAuth.password)
       .then(() => {
-        //   .then((data) => {
-        //    if (data.token) {
         setDataAuth({ email: "", password: "" });
         setloggedIn(true);
         history.push("/");
       })
-      //  })
       .catch(() => {
         setRegInfo({
           isRegOk: false,

@@ -27,16 +27,7 @@ export const authorize = (email, password) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
-  })
-    .then(checkResponse)
-    // .then((data) => {
-    //   if (data.token) {
-    //     localStorage.setItem("jwt", data.token);
-    //     return data;
-    //   } else {
-    //     return;
-    //   }
-    // });
+  }).then(checkResponse);
 };
 
 export const signout = () => {
@@ -46,7 +37,6 @@ export const signout = () => {
   }).then(checkResponse);
 };
 
-//export const getContent = (token) => {
 export const getContent = () => {
   return fetch(`${BASE_URL}users/me`, {
     method: "GET",
@@ -54,17 +44,18 @@ export const getContent = () => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-  //    Authorization: `Bearer ${token}`,
     },
-  }).then(checkResponse);
-  
-  // .then((res) => {
-  //   if(res.status===401){
-  //     return Promise.reject("Пользователь не авторизован");
-  //   }
-  //   if(!res.ok){
-  //     return Promise.reject(`Ошибка: ${res.status}`);
-  //   }
-  //   return res.json()
-  // })
+  }).then((res) => {
+
+    if (!res.ok) {
+      if (res.status === 401) {
+        return Promise.reject("Пользователь не авторизован");
+      }
+      return Promise.reject(`Ошибка: ${res.status}`);
+    }
+    return res.json()
+  })
+  //.then(checkResponse);
+
+
 };
