@@ -12,9 +12,11 @@ module.exports.auth = (req, res, next) => {
   try {
     if (token) {
       payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
+    } else {
+      throw new AuthorizationError('Необходима авторизация');
     }
-  } catch {
-    return next(new AuthorizationError('Необходима авторизация'));
+  } catch (err) {
+    return next(err);
   }
   req.user = payload;
   return next();
