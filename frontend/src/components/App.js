@@ -76,7 +76,7 @@ function App() {
       });
     //   }
     return;
-  }, [history, loggedIn, dataAuth.email]);
+  }, [history, loggedIn]);
 
   function handleEditAvatarClick() {
     setAvatarPopupOpen(true);
