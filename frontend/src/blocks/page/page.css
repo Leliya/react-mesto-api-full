@@ -1,6 +1,7 @@
 .page {
   background-color: black;
   width: 100%;
+  min-height: 100vh;
   display: grid;
   grid-template-columns: calc(200vw / 1280 * 100) calc(880vw / 1280 * 100) calc(
       200vw / 1280 * 100

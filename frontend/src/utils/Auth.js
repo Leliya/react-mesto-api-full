@@ -1,9 +1,21 @@
 export const BASE_URL = "https://api.leliya.mesto.nomoredomains.icu/";
 
-function checkResponse(response) {
-  return response.ok
-    ? response.json()
-    : Promise.reject(`Ошибка: ${response.status}`);
+let obj
+
+function getResponse(res) {
+  obj = { ok: res.ok, status: res.status }
+  return res.json()
+}
+
+function checkResponse(res) {
+  if (obj.ok === false) {
+    if (obj.status === 401) {
+      return Promise.reject(res.message);
+    }
+    return Promise.reject(res.message);
+  }
+  obj = {}
+  return res
 }
 
 export const register = (email, password) => {
@@ -15,7 +27,8 @@ export const register = (email, password) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
-  }).then(checkResponse);
+  }).then(getResponse)
+    .then(checkResponse);
 };
 
 export const authorize = (email, password) => {
@@ -27,14 +40,16 @@ export const authorize = (email, password) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
-  }).then(checkResponse);
+  }).then(getResponse)
+    .then(checkResponse);
 };
 
 export const signout = () => {
   return fetch(`${BASE_URL}signout`, {
     method: "GET",
     credentials: "include",
-  }).then(checkResponse);
+  })
+    .then(getResponse).then(checkResponse);
 };
 
 export const getContent = () => {
@@ -45,17 +60,6 @@ export const getContent = () => {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-  }).then((res) => {
-
-    if (!res.ok) {
-      if (res.status === 401) {
-        return Promise.reject("Пользователь не авторизован");
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    }
-    return res.json()
-  })
-  //.then(checkResponse);
-
-
+  }).then(getResponse)
+    .then(checkResponse);
 };

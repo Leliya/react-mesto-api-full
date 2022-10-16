@@ -24,13 +24,13 @@ function Main({
             onClick={onEditAvatar}
           ></button>
           <img
-            src={currentUser.user?currentUser.user.avatar:'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png'}
+            src={currentUser.user ? currentUser.user.avatar : 'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png'}
             alt="Аватар профиля"
             className="profile__avatar"
           />
         </div>
-        <h1 className="profile__name">{currentUser.user?currentUser.user.name:'Жак-Ив Кусто'}</h1>
-        <p className="profile__activity">{currentUser.user?currentUser.user.about:'Исследователь'}</p>
+        <h1 className="profile__name">{currentUser.user ? currentUser.user.name : 'Жак-Ив Кусто'}</h1>
+        <p className="profile__activity">{currentUser.user ? currentUser.user.about : 'Исследователь'}</p>
         <button
           className="profile__edit-button"
           aria-label="Редактировать профиль"
@@ -46,7 +46,7 @@ function Main({
       </section>
       <section className="photos">
         <ul className="cards">
-          {cards.length?cards.map((card) => (
+          {cards.length ? cards.map((card) => (
             <Card
               card={card}
               onCardClick={onCardClick}
@@ -54,7 +54,7 @@ function Main({
               onCardLike={onCardLike}
               onCardDelete={onCardDelete}
             />
-          )):<></>}
+          )) : <p className="cards__none">кажется здесь ничего нет</p>}
         </ul>
       </section>
     </main>

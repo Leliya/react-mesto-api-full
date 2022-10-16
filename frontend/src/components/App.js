@@ -186,10 +186,12 @@ function App() {
           }, 2500);
         }
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log(err)
         setRegInfo({
           isRegOk: false,
-          message: "Что-то пошло не так! Попробуйте ещё раз.",
+          message: err,
+          //message: "Что-то пошло не так! Попробуйте ещё раз.",
         });
         setIsInfoTooltipOpen(true);
       })
@@ -206,10 +208,10 @@ function App() {
         setloggedIn(true);
         history.push("/");
       })
-      .catch(() => {
+      .catch((err) => {
         setRegInfo({
           isRegOk: false,
-          message: "Что-то пошло не так! Попробуйте ещё раз.",
+          message: err,
         });
         setIsInfoTooltipOpen(true);
       })
@@ -222,13 +224,13 @@ function App() {
 
   function handleSignOut() {
     signout()
-    .then(() => {
-      setloggedIn(false); 
-      history.push("/sign-in");
-      setEmailLoggedin("");
-    }).catch((err) => {
-      console.log(err);
-    })
+      .then(() => {
+        setloggedIn(false);
+        history.push("/sign-in");
+        setEmailLoggedin("");
+      }).catch((err) => {
+        console.log(err);
+      })
   }
 
   function handlerCloseInfoTooltip() {

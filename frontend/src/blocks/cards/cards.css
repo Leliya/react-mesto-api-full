@@ -5,7 +5,7 @@
   padding: 0;
   margin: 0;
   grid-template-columns: repeat(3, calc(282vw / 1280 * 100));
-  grid-template-rows: repeat(2, calc(362vw / 1280 * 100));
+  grid-template-rows: calc(362vw / 1280 * 100);
   column-gap: calc(17vw / 1280 * 100);
   row-gap: calc(20vw / 1280 * 100);
   grid-auto-rows: calc(362vw / 1280 * 100);
@@ -16,7 +16,7 @@
 @media screen and (min-width: 1441px) {
   .cards {
     grid-template-columns: repeat(3, 317px);
-    grid-template-rows: repeat(2, 407px);
+    grid-template-rows: 407px;
     column-gap: 17px;
     row-gap: 20px;
     grid-auto-rows: 407px;
@@ -26,7 +26,7 @@
 @media screen and (max-width: 1024px) {
   .cards {
     grid-template-columns: repeat(3, 223px);
-    grid-template-rows: repeat(2, 288px);
+    grid-template-rows: 288px;
     column-gap: 17px;
     row-gap: 20px;
     grid-auto-rows: 290px;
@@ -36,7 +36,7 @@
 @media screen and (max-width: 900px) {
   .cards {
     grid-template-columns: repeat(2, calc(282vw / 900 * 100));
-    grid-template-rows: repeat(3, calc(362vw / 900 * 100));
+    grid-template-rows: calc(362vw / 900 * 100);
     column-gap: calc(17vw / 900 * 100);
     row-gap: calc(20vw / 900 * 100);
     grid-auto-rows: calc(362vw / 900 * 100);
@@ -46,7 +46,7 @@
 @media screen and (max-width: 600px) {
   .cards {
     grid-template-columns: 282px;
-    grid-template-rows: repeat(6, 362px);
+    grid-template-rows: 362px;
     row-gap: 20px;
     column-gap: 0;
     grid-auto-rows: 362px;
