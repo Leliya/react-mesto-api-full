@@ -1,5 +1,4 @@
-export const BASE_URL = "https://api.leliya.mesto.nomoredomains.icu/";
-
+const { REACT_APP_PROD_BACK = "http://localhost:4000/"} = process.env
 let obj
 
 function getResponse(res) {
@@ -19,7 +18,7 @@ function checkResponse(res) {
 }
 
 export const register = (email, password) => {
-  return fetch(`${BASE_URL}signup`, {
+  return fetch(`${REACT_APP_PROD_BACK}signup`, {
     method: "POST",
     credentials: "include",
     headers: {
@@ -32,7 +31,7 @@ export const register = (email, password) => {
 };
 
 export const authorize = (email, password) => {
-  return fetch(`${BASE_URL}signin`, {
+  return fetch(`${REACT_APP_PROD_BACK}signin`, {
     method: "POST",
     credentials: "include",
     headers: {
@@ -45,7 +44,7 @@ export const authorize = (email, password) => {
 };
 
 export const signout = () => {
-  return fetch(`${BASE_URL}signout`, {
+  return fetch(`${REACT_APP_PROD_BACK}signout`, {
     method: "GET",
     credentials: "include",
   })
@@ -53,7 +52,7 @@ export const signout = () => {
 };
 
 export const getContent = () => {
-  return fetch(`${BASE_URL}users/me`, {
+  return fetch(`${REACT_APP_PROD_BACK}users/me`, {
     method: "GET",
     credentials: "include",
     headers: {

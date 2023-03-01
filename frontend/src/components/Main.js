@@ -45,8 +45,8 @@ function Main({
         ></button>
       </section>
       <section className="photos">
-        <ul className="cards">
-          {cards.length ? cards.map((card) => (
+        {cards.length ? <ul className="cards">
+          {cards.map((card) => (
             <Card
               card={card}
               onCardClick={onCardClick}
@@ -54,8 +54,8 @@ function Main({
               onCardLike={onCardLike}
               onCardDelete={onCardDelete}
             />
-          )) : <p className="cards__none">кажется здесь ничего нет</p>}
-        </ul>
+          ))}
+        </ul> : <p className="cards__none">кажется здесь ничего нет</p>}
       </section>
     </main>
   );

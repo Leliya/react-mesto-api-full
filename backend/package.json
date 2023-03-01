@@ -8,25 +8,24 @@
   },
   "author": "Mariya Volochek <volochek92@yandex.ru>",
   "devDependencies": {
-    "eslint": "^8.2.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.25.2",
-    "nodemon": "^2.0.19"
+    "eslint": "8.2.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-plugin-import": "2.25.2",
+    "nodemon": "2.0.19"
   },
   "main": "app.js",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.20.0",
-    "celebrate": "^15.0.1",
-    "cookie-parser": "^1.4.6",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.1",
-    "express-winston": "^4.2.0",
-    "helmet": "^6.0.0",
-    "joi": "^17.6.0",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.5.4",
-    "validator": "^13.7.0",
-    "winston": "^3.8.2"
+    "bcryptjs": "2.4.3",
+    "body-parser": "1.20.0",
+    "celebrate": "15.0.1",
+    "cookie-parser": "1.4.6",
+    "dotenv": "16.0.3",
+    "express": "4.18.1",
+    "express-winston": "4.2.0",
+    "helmet": "6.0.0",
+    "jsonwebtoken": "8.5.1",
+    "mongoose": "6.5.4",
+    "validator": "13.7.0",
+    "winston": "3.8.2"
   }
 }

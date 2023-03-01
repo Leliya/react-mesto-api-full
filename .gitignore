@@ -9,6 +9,9 @@ node_modules
 # Optional npm cache directory
 .npm
 
+# production
+/frontend/build
+
 # Optional REPL history
 .DS_Store
 .idea

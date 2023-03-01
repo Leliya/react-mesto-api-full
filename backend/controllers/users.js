@@ -114,9 +114,9 @@ const login = (req, res, next) => {
       .cookie('jwt', token, {
         maxAge: 3600000 * 24 * 7,
         httpOnly: true,
-        // sameSite: 'none',
-        // secure: true,
-        sameSite: 'Lax',
+        sameSite: 'none',
+        // sameSite: 'Lax',
+        secure: true,
       })
       .send({ email, password });
   })

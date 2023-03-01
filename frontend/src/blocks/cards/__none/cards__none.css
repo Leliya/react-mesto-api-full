@@ -1,8 +1,11 @@
 .cards__none {
+  height: 34vh;
   color: #fff;
   opacity: 0.8;
-  margin: auto;
+  margin: 0;
   line-height: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  grid-column: 1/-1;
 }

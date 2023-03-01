@@ -18,7 +18,7 @@ const routes = require('./routes/index');
 const { handlerErrors, notFound } = require('./middlewares/handlerErrors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 4000 } = process.env;
 
 app.use(helmet());
 app.use(bodyParser.json());
@@ -34,12 +34,6 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
 app.use(requestLogger);
 
 app.use(allowCors);
-
-app.get('/crash-test', () => {
-  setTimeout(() => {
-    throw new Error('Сервер сейчас упадёт');
-  }, 0);
-});
 
 app.use('', routes);
 
