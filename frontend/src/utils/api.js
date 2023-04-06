@@ -1,4 +1,4 @@
-const { REACT_APP_PROD_BACK = "http://localhost:4000/"} = process.env
+import { BASE_URL } from "./const";
 
 class Api {
   constructor(options) {
@@ -87,7 +87,7 @@ class Api {
 }
 
 export const api = new Api({
-  baseUrl: REACT_APP_PROD_BACK,
+  baseUrl: BASE_URL,
   headers: {
     "Content-Type": "application/json",
   },

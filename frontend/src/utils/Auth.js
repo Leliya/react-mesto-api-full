@@ -1,4 +1,5 @@
-const { REACT_APP_PROD_BACK = "http://localhost:4000/"} = process.env
+import { BASE_URL } from "./const";
+
 let obj
 
 function getResponse(res) {
@@ -18,7 +19,7 @@ function checkResponse(res) {
 }
 
 export const register = (email, password) => {
-  return fetch(`${REACT_APP_PROD_BACK}signup`, {
+  return fetch(`${BASE_URL}signup`, {
     method: "POST",
     credentials: "include",
     headers: {
@@ -31,7 +32,7 @@ export const register = (email, password) => {
 };
 
 export const authorize = (email, password) => {
-  return fetch(`${REACT_APP_PROD_BACK}signin`, {
+  return fetch(`${BASE_URL}signin`, {
     method: "POST",
     credentials: "include",
     headers: {
@@ -44,7 +45,7 @@ export const authorize = (email, password) => {
 };
 
 export const signout = () => {
-  return fetch(`${REACT_APP_PROD_BACK}signout`, {
+  return fetch(`${BASE_URL}signout`, {
     method: "GET",
     credentials: "include",
   })
@@ -52,7 +53,7 @@ export const signout = () => {
 };
 
 export const getContent = () => {
-  return fetch(`${REACT_APP_PROD_BACK}users/me`, {
+  return fetch(`${BASE_URL}users/me`, {
     method: "GET",
     credentials: "include",
     headers: {
